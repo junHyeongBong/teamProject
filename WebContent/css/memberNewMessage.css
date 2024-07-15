@@ -1,0 +1,28 @@
+body{
+	background-image: url("../img/6936a19209643c247cafa4b003ee9ee3.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.mess_send_inline1.title{
+	color: cornflowerblue;
+}
+
+h3{
+	color: dodgerblue;
+}
+
+.submit{
+	background-color: cornflowerblue;
+	color: white; 
+	margin-left: 6px;
+	margin-top: 1px;
+	border-color: cornflowerblue;
+}
+.back{
+	margin-left: 137px;
+	color: white;
+	background-color: skyblue;
+	border-color: skyblue;
+	
+}

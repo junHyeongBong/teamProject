@@ -1,0 +1,48 @@
+.reply{
+	font-family: 'Gamja Flower', cursive;
+	font-size: 14px;
+}
+
+.reply table{
+	border-style: hidden;
+}
+
+.reply table tr{
+	margin: 10px 0 10px 0;
+	padding: 10px 0 10px 0;
+	border-style: hidden;
+}
+
+.reply table tr td{
+/* 	margin: 10px 0 10px 0; */
+	padding: 20px 0 20px 0;
+	border-style: hidden;
+}
+
+.reply table input{
+    border: 2px solid darkgrey;
+	border-radius: 10px;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.reply table textarea{
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+}
+
+/* .reply table td{ */
+/* 	border-style: hidden; */
+/* } */
+
+.reply table button{
+	    background-color: #2E77BC;
+	    border-radius: 10px;
+	    border: 1px solid #003366;
+	    color: white;
+}
+
+.reply table button:hover{
+	color: #ff0000;
+	background-color: #fff;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.RecruitDao">
+
+	<insert id="insertRecruit" parameterType="recruit">
+		insert into recruit values(0, #{trip_board_num}, #{trip_board_member_id}, #{trip_board_member_nick},
+		#{trip_board_recruit_id}, #{trip_board_recruit_nick}, 0, now())
+	</insert>
+	
+	<update id="recruitAccept" parameterType="int">
+		update recruit set recruit_accept=1 where recruit_index=#{recruit_index}
+	</update>
+	
+	<delete id="deleteOneRecruit" parameterType="int">
+		delete from recruit where recruit_index=#{recruit_index}
+	</delete>
+	
+	<delete id="deleteAllRecruitByBoardNum" parameterType="int">
+		delete from recruit where trip_board_num=#{trip_board_num}
+	</delete>
+	
+	<select id="checkRecruit" parameterType="recruit" resultType="int">
+		select count(*) from recruit where trip_board_num=#{trip_board_num} and trip_board_recruit_id=#{trip_board_recruit_id}
+	</select>
+	
+	<select id="selectAllRecruitByBoardNum" parameterType="int" resultType="recruit">
+		select * from recruit where trip_board_num=#{trip_board_num}
+	</select>
+</mapper>

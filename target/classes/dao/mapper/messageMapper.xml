@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.MessageDao">
+	<insert id="insertMessage" parameterType="Message">
+		INSERT 
+			INTO message(message_title, message_send_id, message_send_nick, message_receive_id,
+					    message_receive_nick, message_content, message_isread, message_writedate)
+		 	VALUES (#{message_title},#{message_send_id},#{message_send_nick},#{message_receive_id},
+		 			#{message_receive_nick},#{message_content},'N',now())
+	</insert>
+	
+	<update id="updateMessage" parameterType="Message">
+		UPDATE message
+			SET message_title=#{message_title},message_send_id=#{message_send_id},
+				message_send_nick=#{message_send_nick},message_receive_id=#{message_receive_id},
+				message_receive_nick=#{message_receive_nick},message_content=#{message_content},
+				message_isread=#{message_isread},message_del_sender=#{message_del_sender},
+				message_del_receiver=#{message_del_receiver}
+			WHERE message_num = #{message_num}
+	</update>
+	<update id="deleteReceiveMessage" parameterType="int">
+		UPDATE message
+			SET message_del_receiver=1
+			WHERE message_num = #{message_num}
+	</update>
+	<update id="deleteSendMessage" parameterType="int">
+		UPDATE message
+			SET message_del_sender=1
+			WHERE message_num = #{message_num}
+	</update>
+	<update id="updateIsRead" parameterType="int">
+		UPDATE message
+			SET message_isread = CASE
+				WHEN message_isread = 'N' 
+					THEN 'Y' ELSE message_isread END
+			WHERE message_num = #{message_num} 
+	</update>
+	
+	<delete id="deleteMessage" parameterType="int">
+		DELETE
+			FROM message
+			WHERE message_num = #{message_num}	
+	</delete>
+	
+	<select id="selectOne" parameterType="int" resultType="Message">
+		SELECT message_num,message_title,message_send_id,message_send_nick,message_receive_id,
+			   message_receive_nick,message_content,message_isread,message_del_sender,
+			   message_del_receiver,message_writedate
+			FROM message WHERE message_num = #{message_num}
+	</select>
+	<select id="selectPrivateList" resultType="Message">
+		SELECT message_num,message_title,message_send_id,message_send_nick,message_receive_id,
+			   message_receive_nick,message_content,message_isread,message_del_sender,
+			   message_del_receiver,message_writedate
+			FROM message
+	</select>
+	<select id="selectReceiveMsgList" parameterType="Map" resultType="Message">
+		SELECT message_num,message_title,message_send_id,message_send_nick,message_receive_id,
+			   message_receive_nick,message_content,message_isread,message_del_sender,
+			   message_del_receiver,message_writedate
+			FROM message msg 
+				LEFT OUTER JOIN
+					(SELECT relation_id
+	  					FROM relation
+						WHERE member_id = #{member_id}
+	   					AND member_relation = 'ignored') rel
+	    		ON msg.message_send_id = rel.relation_id
+			WHERE message_receive_id = #{member_id}
+	   			AND message_del_receiver != '1'
+	   			AND rel.relation_id is null
+			ORDER BY message_num DESC    
+			LIMIT 10 OFFSET #{message_offset}
+	</select>
+	<select id="selectSendMsgList" parameterType="Map" resultType="Message">
+		SELECT message_num,message_title,message_send_id,message_send_nick,message_receive_id,
+			   message_receive_nick,message_content,message_isread,message_del_sender,
+			   message_del_receiver,message_writedate
+			FROM message
+			WHERE message_send_id = #{member_id}
+				AND message_del_sender != '1'
+			ORDER BY message_num DESC    
+			LIMIT 10 OFFSET #{message_offset}
+	</select>		
+	<select id="selectReceiveCount" parameterType="String" resultType="int">
+		SELECT count(*)
+			FROM message msg 
+				LEFT OUTER JOIN
+					(SELECT relation_id
+	  					FROM relation
+						WHERE member_id=#{member_id}
+	   					AND member_relation = 'ignored') rel
+	    		ON msg.message_send_id = rel.relation_id
+			WHERE message_receive_id = #{member_id}
+	   			AND message_del_receiver != '1'
+	   			AND rel.relation_id is null
+	</select>
+	<select id="selectSendCount" parameterType="String" resultType="int">
+		SELECT count(*)
+			FROM message 
+			WHERE message_send_id = #{member_id}
+	   			AND message_del_sender != '1'
+	</select>
+	<select id="selectReceiveNoReadCount" parameterType="String" resultType="int">
+		SELECT count(*)
+			FROM message msg 
+				LEFT OUTER JOIN
+					(SELECT relation_id
+	  					FROM relation
+						WHERE member_id=#{member_id}
+	   					AND member_relation = 'ignored') rel
+	    		ON msg.message_send_id = rel.relation_id
+			WHERE message_receive_id = #{member_id}
+	   			AND message_del_receiver != '1'
+	   			AND rel.relation_id is null
+				AND message_isread = 'N'						
+	</select>
+	<select id="selectSendNoReadCount" parameterType="String" resultType="int">
+		SELECT count(*)
+			FROM message 
+			WHERE message_send_id = #{member_id}
+	   			AND message_del_sender != '1'
+	   			AND message_isread = 'N'						
+	</select>
+	<select id="selectFriendList" parameterType="String" resultType="String">
+		SELECT relation_id 
+			FROM relation WHERE member_id=#{member_id} AND member_relation='friend'
+	</select> 
+	<select id="selectIgnoredList" parameterType="String" resultType="String">
+		SELECT relation_id 
+			FROM relation WHERE member_id=#{member_id} AND member_relation='ignored'
+	</select>
+	
+	<select id="checkDeleteSender" parameterType="int" resultType="String">
+		SELECT message_del_sender
+			FROM message WHERE message_num = #{message_num}
+	</select>
+	<select id="checkDeleteReceiver" parameterType="int" resultType="String">
+		SELECT message_del_receiver
+			FROM message WHERE message_num = #{message_num}
+	</select>
+
+</mapper>

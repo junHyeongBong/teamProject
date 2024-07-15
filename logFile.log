@@ -1,0 +1,64 @@
+2018-09-11 17:01:43.577 INFO  338  --- [main] o.s.t.c.s.DefaultTestContextBootstrapper 
+INFO : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-09-11 17:01:43.646 INFO  407  --- [main] o.s.t.c.s.DefaultTestContextBootstrapper 
+INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@121314f7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@130c12b7, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5e600dd5, org.springframework.test.context.support.DirtiesContextTestExecutionListener@576d5deb, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5d534f5d, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2e3967ea]
+2018-09-11 17:01:43.747 INFO  508  --- [main] o.s.b.f.xml.XmlBeanDefinitionReader 
+INFO : Loading XML bean definitions from URL [file:WebContent/WEB-INF/spring/root-Context.xml]
+2018-09-11 17:01:44.147 INFO  908  --- [main] o.s.s.c.SpringSecurityCoreVersion 
+INFO : You are running with Spring Security Core 4.2.3.RELEASE
+2018-09-11 17:01:44.152 INFO  913  --- [main] o.s.s.c.SecurityNamespaceHandler 
+INFO : Spring Security 'config' module version is 4.2.3.RELEASE
+2018-09-11 17:01:44.195 INFO  956  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /
+2018-09-11 17:01:44.196 INFO  957  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/join
+2018-09-11 17:01:44.196 INFO  957  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/joinForm
+2018-09-11 17:01:44.196 INFO  957  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/login
+2018-09-11 17:01:44.196 INFO  957  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/loginForm
+2018-09-11 17:01:44.196 INFO  957  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/apiLogin/**
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/main
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/totalTripBoardListAndPaging
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/repliesList
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/replySave
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/replyDelete
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/replyPassCheck
+2018-09-11 17:01:44.197 INFO  958  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'permitAll' for /common/replyUpdate
+2018-09-11 17:01:44.199 INFO  960  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'hasRole('ROLE_USER')' for /common/tripBoardWriteForm
+2018-09-11 17:01:44.199 INFO  960  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'hasRole('ROLE_USER')' for /common/tripBoardWrite
+2018-09-11 17:01:44.199 INFO  960  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'hasRole('ROLE_ADMIN')' for /common/memberList
+2018-09-11 17:01:44.199 INFO  960  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'hasRole('ROLE_USER')' for /common/myPage
+2018-09-11 17:01:44.200 INFO  961  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'hasRole('ROLE_USER')' for /common/userInfoUpdate
+2018-09-11 17:01:44.200 INFO  961  --- [main] o.s.s.c.h.FilterInvocationSecurityMetadataSourceParser 
+INFO : Creating access control expression attribute 'hasRole('ROLE_USER')' for /common/logout
+2018-09-11 17:01:44.273 INFO  1034 --- [main] o.s.s.c.h.HttpSecurityBeanDefinitionParser 
+INFO : Checking sorted filter chain: [Root bean: class [org.springframework.security.web.context.SecurityContextPersistenceFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 200, Root bean: class [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 400, Root bean: class [org.springframework.security.web.header.HeaderWriterFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 500, Root bean: class [org.springframework.security.web.csrf.CsrfFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 700, <org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter#0>, order = 1200, <CustomUsernamePasswordAuthenticationFilter>, order = 1201, Root bean: class [org.springframework.security.web.savedrequest.RequestCacheAwareFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 1700, Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.security.config.http.HttpConfigurationBuilder$SecurityContextHolderAwareRequestFilterBeanFactory#0; factoryMethodName=getBean; initMethodName=null; destroyMethodName=null, order = 1800, Root bean: class [org.springframework.security.web.authentication.AnonymousAuthenticationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2100, Root bean: class [org.springframework.security.web.session.SessionManagementFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2200, Root bean: class [org.springframework.security.web.access.ExceptionTranslationFilter]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null, order = 2300, <org.springframework.security.web.access.intercept.FilterSecurityInterceptor#0>, order = 2400]
+2018-09-11 17:01:44.284 INFO  1045 --- [main] o.s.c.s.GenericApplicationContext 
+INFO : Refreshing org.springframework.context.support.GenericApplicationContext@5b218417: startup date [Tue Sep 11 17:01:44 KST 2018]; root of context hierarchy
+2018-09-11 17:01:44.665 INFO  1426 --- [main] o.s.j.d.DriverManagerDataSource 
+INFO : Loaded JDBC driver: org.mariadb.jdbc.Driver
+2018-09-11 17:01:45.838 INFO  2599 --- [main] o.s.s.w.DefaultSecurityFilterChain 
+INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@4c59e45e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58ec7116, org.springframework.security.web.header.HeaderWriterFilter@63bde6c2, org.springframework.security.web.csrf.CsrfFilter@6ea04618, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6dd82486, security.CustomUsernamePasswordAuthenticationFilter@56078cea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a00eb1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36fcf6c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1aac188d, org.springframework.security.web.session.SessionManagementFilter@7026b7ee, org.springframework.security.web.access.ExceptionTranslationFilter@2d23faef, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7cb8437d]
+2018-09-11 17:01:45.876 INFO  2637 --- [main] o.s.s.c.h.DefaultFilterChainValidator 
+INFO : Checking whether login URL '/common/loginForm' is accessible with your configuration
+2018-09-11 17:01:45.916 WARN  2677 --- [main] o.s.s.c.h.DefaultFilterChainValidator 
+WARN : Possible error: Filters at position 4 and 5 are both instances of org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+2018-09-11 17:01:46.069 INFO  2830 --- [main] test.DaoTest 
+INFO : $2a$10$P5Do7c1a8sf/Av6jtnlOi.i6H1Vqn03P3kZOv5gFUSP0OuOrby/5q
+2018-09-11 17:01:46.076 INFO  2837 --- [Thread-1] o.s.c.s.GenericApplicationContext 
+INFO : Closing org.springframework.context.support.GenericApplicationContext@5b218417: startup date [Tue Sep 11 17:01:44 KST 2018]; root of context hierarchy

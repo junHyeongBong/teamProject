@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<context:component-scan base-package="service"></context:component-scan>
+	<context:component-scan base-package="security"></context:component-scan>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/project_tf"></property>
+		<property name="username" value="puppy234"></property>
+		<property name="password" value="wildcard3!"></property>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="typeAliasesPackage" value="model"></property>
+		<property name="mapperLocations" value="classpath:dao/mapper/**/*.xml"></property>
+	</bean>
+	
+	<bean id="tripBoardDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.Trip_BoardDao"></property>
+	</bean>
+	
+	<bean id="dailyTripDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.Daily_TripDao"></property>
+	</bean>
+	
+	<bean id="roadFinderDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.Road_FinderDao"></property>
+	</bean>
+	
+	<bean id="convenientDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.ConvenientDao"></property>
+	</bean>
+	
+	<bean id="replyDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.ReplyDao"></property>
+	</bean>
+	
+	<bean id="recruitDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.RecruitDao"></property>
+	</bean>
+	
+	<!-- 정환이형 부분 -->
+	
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</bean>
+	
+	<bean id = "memberDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.MemberDao"></property>
+	</bean>		
+	<bean id="authorityDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.AuthorityDao"></property>
+	</bean>
+	<bean id="relationDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.RelationDao"></property>
+	</bean>
+	<bean id="messageDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		<property name="mapperInterface" value="dao.MessageDao"></property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+	<bean id="ExtraParamSource" class="security.ExtraParamSource"/>
+	
+	<bean id="customSuccessHandler" class="security.CustomAuthenticationSuccessHandler">
+	    <property name="defaultTargetUrl" value="/common/main" />
+<!-- 	    <property name="targetUrlParameter" value="/LoginSuccessful.htm" /> -->
+	</bean>
+
+	<bean id="failureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+	    <property name="defaultFailureUrl" value="/noAuth" />
+	</bean>
+	
+	<bean id ="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com"></property>
+		<property name="port" value="587"></property>
+		<property name="username" value="projecttf3@gmail.com"></property>
+		<property name="password" value="wildcard3!"></property>
+		
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<security:http auto-config="false" use-expressions="true">	
+		<security:intercept-url pattern="/" access="permitAll"/>
+		<security:intercept-url pattern="/common/join" access="permitAll"/>
+		<security:intercept-url pattern="/common/joinForm" access="permitAll"/>
+ 		<security:intercept-url pattern="/common/login" access="permitAll"/> 
+		<security:intercept-url pattern="/common/loginForm" access="permitAll"/>
+		<security:intercept-url pattern="/common/apiLogin/**" access="permitAll"/>
+		<security:intercept-url pattern="/common/main" access="permitAll"/>
+		<security:intercept-url pattern="/common/totalTripBoardListAndPaging" access="permitAll"/>
+		<security:intercept-url pattern="/common/repliesList" access="permitAll"/>
+		<security:intercept-url pattern="/common/replySave" access="permitAll"/>
+		<security:intercept-url pattern="/common/replyDelete" access="permitAll"/>
+		<security:intercept-url pattern="/common/replyPassCheck" access="permitAll"/>
+		<security:intercept-url pattern="/common/replyUpdate" access="permitAll"/>
+<!-- 		<security:intercept-url pattern="/common/findAccount" access="permitAll"/> -->
+<!-- 		<security:intercept-url pattern="/common/main" access="hasRole('ROLE_USER')"/> -->
+		<security:intercept-url pattern="/common/tripBoardWriteForm" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/common/tripBoardWrite" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/common/memberList" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/common/myPage" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/common/userInfoUpdate" access="hasRole('ROLE_USER')"/>
+		<security:intercept-url pattern="/common/logout" access="hasRole('ROLE_USER')"/>
+<!-- 		<security:intercept-url pattern="/board/**" access="hasRole('ROLE_USER')"/> -->
+		<security:access-denied-handler error-page="/noAuth"/> 
+		<security:custom-filter ref="CustomUsernamePasswordAuthenticationFilter" after="FORM_LOGIN_FILTER "/>
+
+		<security:form-login login-page="/common/loginForm"
+							 login-processing-url="/common/login"
+							 default-target-url="/common/main"
+							 authentication-failure-url="/common/loginForm?error=login"
+							 username-parameter="member_id"
+							 password-parameter="member_pw"
+							 />
+		<security:csrf/>	
+	</security:http>
+	
+	<bean id="CustomUsernamePasswordAuthenticationFilter" class="security.CustomUsernamePasswordAuthenticationFilter">
+	    <property name="authenticationManager" ref="authenticationManager" />
+	    <property name="authenticationSuccessHandler" ref="customSuccessHandler"/>
+	    <property name="authenticationFailureHandler" ref="failureHandler"/>
+	    <property name="filterProcessesUrl" value="/common/apiLogin/**"/>
+	    <property name="usernameParameter" value="j_username"/>
+	    <property name="passwordParameter" value="j_password"/>
+	</bean>
+	
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider ref="customAuthenticationProvider"/>
+		<security:authentication-provider user-service-ref="customUserDetailService">
+			<security:password-encoder ref="passwordEncoder"></security:password-encoder>
+		</security:authentication-provider>
+	</security:authentication-manager>
+</beans>

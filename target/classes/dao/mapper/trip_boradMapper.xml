@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.Trip_BoardDao">
+	<insert id="insertTripBoard" parameterType="Trip_Board">
+		insert into trip_board values(0, #{member_id}, #{member_nick}, #{trip_board_title},
+		#{trip_board_startdate}, #{trip_board_enddate}, #{trip_board_nowcount},
+		#{trip_board_finalcount}, #{trip_board_recruit}, #{trip_board_bool},
+		#{trip_board_memo}, 0, 0, now())
+		<selectKey resultType="int" keyProperty="trip_board_num" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="updateTripBoard" parameterType="Trip_Board">
+	
+	</update>
+	
+	<update id="viewCountUpTripBoard" parameterType="int">
+		update trip_board set trip_board_hits = trip_board_hits+1 where trip_board_num = #{trip_board_num}
+	</update>
+	
+	<update id="recruitCountUp" parameterType="int">
+		update trip_board set trip_board_nowcount = trip_board_nowcount + 1 where trip_board_num = #{trip_board_num}
+	</update>
+	
+	<update id="recommendUpDownTripBoard" parameterType="map">
+		update trip_board set trip_board_recommend = trip_board_recommend 
+		<if test='upDown == "up"'>
+			+1
+		</if>
+		<if test='upDown == "down"'>
+			-1
+		</if>
+		where trip_board_num = #{trip_board_num}
+	</update>
+	
+	<delete id="deleteTripBoard" parameterType="int">
+		delete from trip_board where trip_board_num=#{trip_board_num}
+	</delete>
+	
+	<select id="selectOneTripBoard" parameterType="int" resultType="Trip_Board">
+		select * from trip_board tb left outer join (select count(*) as reply_count from reply) rp on trip_board_num where trip_board_num = #{trip_board_num}
+	</select>
+	
+	<select id="selectBestRecoTripBoard" resultType="Trip_Board">
+		select * from trip_board tb left outer join (select count(*) as reply_count from reply) rp on trip_board_num order by trip_board_recommend desc limit 1 
+	</select>
+	
+	<select id="totalPaging" parameterType="map" resultType="int">
+		select count(*) from trip_board
+		<if test='pageType == "recruit"'>
+			where trip_board_recruit = 'true'
+		</if>
+		<if test='pageType == "bool"'>
+			where trip_board_recruit = 'false' and trip_board_bool = 'true'
+		</if>
+		<if test='pageType == "all"'>
+			where trip_board_bool = 'true'
+		</if>
+	</select>
+	
+	<select id="totalTripBoardList" parameterType="map" resultType="Trip_Board">
+		select * from trip_board tb left outer join (select count(*) as reply_count from reply) rp on trip_board_num
+		<if test='pageType=="recruit"'>
+			where trip_board_recruit = 'true'
+		</if>
+		<if test='pageType=="bool"'>
+			where trip_board_recruit = 'false' and trip_board_bool = 'true'
+		</if>
+		<if test='pageType=="all"'>
+			where trip_board_bool = 'true'
+		</if>
+		<if test='sortType=="latest"'>
+			order by trip_board_num
+		</if>
+		<if test='sortType=="view"'>
+			order by trip_board_hits
+		</if>
+		<if test='sortType=="recommend"'>
+			order by trip_board_recommend 
+		</if>
+		desc limit 6 offset #{paging}
+	</select>	
+	
+	<select id="searchTripBoardPaging" parameterType="map" resultType="int">
+		select count(*) from trip_board
+		<if test='pageType == "recruit"'>
+			where trip_board_recruit = 'true'
+		</if>
+		<if test='pageType == "bool"'>
+			where trip_board_recruit = 'false' and trip_board_bool = 'true'
+		</if>
+		<if test='pageType == "all"'>
+			where trip_board_bool = 'true'
+		</if>
+		<if test='searchOption == "title"'>
+			and trip_board_title like '%${searchText}%'
+		</if>
+		<if test='searchOption == "memo"'>
+			and trip_board_memo like '%${searchText}%'
+		</if>
+		<if test='searchOption == "titlememo"'>
+			and trip_board_title like '%${searchText}%' or trip_board_memo like '%${searchText}%'
+		</if>
+	</select>
+	
+	<select id="searchTripBoardByOption" parameterType="map" resultType="Trip_Board">
+		select * from trip_board tb left outer join (select count(*) as reply_count from reply) rp on trip_board_num
+		<if test='pageType == "recruit"'>
+			where trip_board_recruit = 'true'
+		</if>
+		<if test='pageType == "bool"'>
+			where trip_board_recruit = 'false' and trip_board_bool = 'true'
+		</if>
+		<if test='pageType == "all"'>
+			where trip_board_bool = 'true'
+		</if>
+		<if test='searchOption == "title"'>
+			and trip_board_title like '%${searchText}%'
+		</if>
+		<if test='searchOption == "memo"'>
+			and trip_board_memo like '%${searchText}%'
+		</if>
+		<if test='searchOption == "titlememo"'>
+			and trip_board_title like '%${searchText}%' or trip_board_memo like '%${searchText}%'
+		</if>
+		order by trip_board_num desc limit 6 offset #{paging}
+	</select>
+</mapper>

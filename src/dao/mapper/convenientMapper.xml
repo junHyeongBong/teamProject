@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ConvenientDao">
+
+	<insert id="insertConvenient" parameterType="convenient">
+		insert into convenient values(0, #{convenient_name}, #{convenient_type},
+		#{convenient_address}, #{convenient_laty}, #{convenient_lngx}, now())
+	</insert>
+	
+	<update id="updateConvenient" parameterType="convenient">
+		
+	</update>
+	
+	<delete id="deleteConvenient" parameterType="int">
+		
+	</delete>
+	
+	<select id="selectOneConvenient" parameterType="int" resultType="convenient">
+		select * from convenient where convenient_index=#{convenient_index}
+	</select>
+	
+	<select id="selectAllConvenientByOption" parameterType="convenient" resultType="convenient">
+		select * from convenient where convenient_type=#{convenient_type} and convenient_laty between #{convenient_laty}-0.065 and #{convenient_laty}+0.065
+		and convenient_lngx between #{convenient_lngx}-0.065 and #{convenient_lngx}+0.065 order by convenient_type
+	</select>
+	
+	<select id="selectAllConvenient" resultType="convenient">
+		select * from convenient order by convenient_index
+	</select>
+</mapper>

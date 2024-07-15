@@ -1,0 +1,77 @@
+
+#social {
+	width: 100%;
+/* 	margin: 100px auto; */
+/* 	padding: 30px; */
+	box-sizing: border-box;
+	text-align: center;
+}
+#social h1 {
+	font-size: 24px;
+	text-transform: uppercase;
+}
+#social ul {
+	margin: 0;
+	padding: 0;
+}
+#social ul li {
+	list-style: none;
+	float: left;
+	width: 50%;
+	box-sizing: border-box;
+}
+#social ul li a {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: #fff;
+}
+#social ul li a .fa {
+	font-size: 40px;
+	transition: .5s;
+}
+#social ul li a:hover .fa {
+	transform: rotateY(360deg);
+}
+#social ul li:nth-child(1) a {
+	background: #3b5999;
+}
+#social ul li:nth-child(2) a {
+	background: #55acee;
+}
+#social ul li:nth-child(3) a {
+	background: #dd4b39;
+}
+#social ul li:nth-child(4) a {
+	background: #007785;
+}
+#social ul li:nth-child(5) a {
+	background: #00aff0;
+}
+#social ul li:nth-child(6) a {
+	background: #e4405f;
+}
+#social ul li:nth-child(7) a {
+	background: #cd201f;
+}
+#social ul li:nth-child(8) a {
+	background: #bd081c;
+}
+
+@media (max-width: 992px) {
+	#social h1 {font-size: 30px;}
+	#social ul li {width: calc(100% / 4);}
+}
+
+@media (max-width: 768px) {
+	#social {width: 100%;}
+}
+
+@media (max-width: 480px) {
+	#social {margin: 20px auto;}
+	#social ul li {width: calc(100% / 2);}
+}
+@media (max-width: 360px) {
+	#social {margin: 0 auto;}
+	#social ul li {width: calc(100% / 1);}
+}

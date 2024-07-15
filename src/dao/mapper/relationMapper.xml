@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.RelationDao">
+	
+	<insert id="insertMemberRelation" parameterType="Map">
+		INSERT 
+			INTO relation(member_id, relation_id, member_relation)
+			VALUES (#{member_id},#{relation_id},#{member_relation})
+	</insert>
+
+	<delete id="deleteMemberRelation" parameterType="Map">
+		DELETE FROM relation
+			WHERE member_id = #{member_id} and relation_id = #{relation_id}
+	</delete>
+	
+	<delete id="deleteCheckedRelation" parameterType="Map">
+		DELETE FROM relation
+			WHERE member_id = #{member_id} 
+				AND	relation_id 
+					IN  <foreach item="relation" index="index" collection="checkedValues"
+      						open="(" separator="," close=")">
+        					#{relation}
+  						</foreach>
+	</delete>
+
+	<select id="selectMemberRelation" parameterType="Map" resultType="string">
+		SELECT member_relation 
+		  FROM relation
+		 WHERE member_id = #{member_id} and relation_id = #{relation_id}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+.headerDiv{
+/* 	position: fixed; */
+	margin: 0 auto !important;
+	padding: 0 !important;
+	width: 1850px !important;
+	height: 60px !important;
+	background-color: rgba(255, 255, 255, 0.7) !important;
+	color : black !important;
+	z-index: 1 !important;
+}
+
+.headerLogo{
+	font-family: 'Gamja Flower', cursive !important;
+	float: left !important;
+	height: 60px !important;
+}
+
+.headerLogo p{
+	margin: 6px 0 0 0px !important;
+	font-size: 30px !important;
+	font-weight: bold !important;
+	text-align: center !important;
+	color: #1478FF !important;
+}
+
+.headerNavi{
+	font-family: 'Yeon Sung', cursive !important;
+	float: right !important;
+	height: 60px !important;
+}
+
+.headerNavi a{
+	display: inline-block !important;
+	margin-top: 16px !important;
+	margin-left: 15px !important;
+	font-size: 20px !important;
+	color: black !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	cursor: pointer;
+}
+
+.headerNavi a:hover {
+	color: red !important;
+	font-weight: bold !important;
+}
+
+.myInfo{
+	margin-top: 44px;
+	position: absolute;
+	width:1850px;
+	z-index: 1000;
+	display: block;
+	text-align: right;
+}
+
+.myInfo div{
+	margin-bottom: 5px;
+}
+
+.myInfo img{
+	cursor: pointer;
+}
+
+.alarmContent, .alarmImg{
+	display: inline-block;
+}
+
+#msg_notify_div{ 
+  	display: none;
+ 	width: 180px;  
+ 	height: 110px; 
+ 	display: none;
+ 	background-color: #f5e28c; 
+ 	border:1px solid #8c8c8c; 
+ 	text-align: center; 
+ 	z-index: 500; 
+}
+
+#msg_notify_div span:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#msg_notify_div:hover{ 
+	box-shadow:0 0 0 3px rgba(30,144,255,0.5) inset; 
+} 

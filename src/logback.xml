@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<property name="LOGS_ABSOLUTE_PATH" value="D:/Work/프로젝트my" />
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+<!-- 				 %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %magenta(%-4relative) [%thread{10}] %cyan(%logger{20}[%method:%line]) : %msg%n -->
+				%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-4relative --- [%thread{10}] %logger{20} %n%-5level: %msg%n
+<!-- 				[%method:%line] -->
+			</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      		<level>INFO</level>
+    	</filter>
+	</appender>
+
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logFile.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+        	<pattern>
+        	%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-4relative --- [%thread{10}] %logger{35} %n%-5level: %msg%n
+        	</pattern>
+        </encoder>
+        <!-- 특정 레벨 이상만 로깅 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      		<level>INFO</level>
+    	</filter>
+	</appender>
+	
+	<logger name="org.springframework" level="info"/>
+    <logger name="org.hibernate" level="debug"/>
+    <logger name="org.apache.catalina" level="info"/>
+
+	<root level="debug">
+<!--     <root level="info"> -->
+        <appender-ref ref="console"/>
+         <!-- Console에 로그를 출력하고자 할 때 사용 -->
+        <appender-ref ref="file"/> <!-- File로 로그를 남기고자 할 때 사용 -->
+    </root>
+    
+</configuration>

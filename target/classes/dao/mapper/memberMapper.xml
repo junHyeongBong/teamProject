@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.MemberDao">
+	<insert id="insertMember" parameterType="Member">
+		INSERT 
+			INTO member(member_id, member_type, member_pw, member_email, member_nick,
+					    member_gender, member_regdate, member_bool)
+		 	VALUES (#{member_id},#{member_type},#{member_pw},#{member_email},#{member_nick},
+		 			#{member_gender},now(),1)
+	</insert>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE member
+			SET member_pw=#{member_pw},member_email=#{member_email},member_nick=#{member_nick}
+			WHERE member_id = #{member_id}
+	</update>
+	<update id="updateEmail" parameterType="Map">
+		UPDATE member
+			SET member_email=#{member_email}
+			WHERE member_id = #{member_id}	
+	</update>
+	<update id="updatePw" parameterType="Map">
+		UPDATE member
+			SET member_pw=#{member_pw}
+			WHERE member_id = #{member_id}	
+	</update>
+	<update id="updateNick" parameterType="Map">
+		UPDATE member
+			SET member_nick=#{member_nick}
+			WHERE member_id=#{member_id}	
+	</update>
+	<update id="insertAuthcode" parameterType="Map">
+		UPDATE member
+			SET member_email_authcode=#{member_email_authcode},
+			    member_bool_memo='이메일 인증 필요'
+		 	WHERE member_id = #{member_id}
+	</update>
+	<update id="deleteAuthcode" parameterType="String">
+		UPDATE member
+			SET member_email_authcode=NULL
+			WHERE member_id = #{member_id}
+	</update>
+	<update id="deleteBoolMemo" parameterType="String">
+		UPDATE member
+			SET member_bool_memo=NULL
+			WHERE member_id = #{member_id}
+	</update>
+	<update id="updateProfileImage" parameterType="Map">
+		UPDATE member
+			SET member_pf_image = #{member_pf_image}
+		 	WHERE member_id = #{member_id}
+	</update>
+	<update id="deleteProfileImage" parameterType="String">
+		UPDATE member
+			SET member_pf_image = NULL
+		 	WHERE member_id = #{member_id}
+	</update>
+	
+		
+	<delete id="deleteMember" parameterType="String">
+		DELETE
+			FROM member
+			WHERE member_id = #{member_id}	
+	</delete>
+	
+	<select id="selectOne" parameterType="string" resultType="Member">
+		SELECT member_id,member_type,member_pw,member_email,member_nick,member_gender,
+			   member_regdate,member_bool,member_pf_image
+			FROM member WHERE member_id = #{member_id}
+	</select>
+	<select id="selectAll" resultType="Member">
+		SELECT member_id,member_type,member_pw,member_email,member_nick,member_gender,
+			   member_regdate,member_bool
+			FROM member
+	</select>
+	
+	<select id="checkID" parameterType="string" resultType="string">
+		SELECT member_id
+			FROM member
+			WHERE member_id=#{member_id}
+	</select>
+	<select id="checkOwnEmail" parameterType="string" resultType="string">
+		SELECT member_email
+			FROM member
+			WHERE member_id = #{member_id};
+	</select>	
+	<select id="checkEmail" parameterType="Map" resultType="string">
+		SELECT member_email
+			FROM member
+			WHERE member_email=#{member_email}
+				AND member_id != #{member_id}
+<!-- 				가입/회원정보수정에서 이메일 닉네임 중복체크를 위한 쿼리문. -->
+<!-- 				AJAX에서 회원가입은 id를 " "으로, 회원정보수정은 id를 member_id로 설정해서  -->
+<!-- 				중복 여부를 체크하면 본인이 기존에 쓰고있던 이메일/닉네임을 중복이라고 체크하지 않는다.   -->
+	</select>
+	<select id="checkNick" parameterType="Map" resultType="string">
+		SELECT member_nick
+			FROM member
+			WHERE member_nick=#{member_nick}
+				AND member_id != #{member_id}
+	</select>
+	<select id="checkAuthcode" parameterType="String" resultType="String">
+		SELECT member_email_authcode
+			FROM member
+			WHERE member_id=#{member_id}
+	</select>
+	<select id="checkPw" parameterType="String" resultType="String">
+		SELECT member_pw
+			FROM member
+			WHERE member_id=#{member_id}
+	</select>
+	
+	<select id="emailToId" parameterType="String" resultType="String">
+		SELECT member_id
+			FROM member
+			WHERE member_email=#{member_email}
+	</select>
+	<select id="selectRelationList" parameterType="Map" resultType="Member">
+		SELECT member_id,member_type,member_email,member_nick,
+			   member_gender,member_regdate,member_bool,member_pf_image
+			FROM member mem 
+				LEFT OUTER JOIN 
+					(SELECT relation_id
+	  				 	FROM relation
+						WHERE member_id=#{member_id}
+						<if test="member_relation == 'ignored'">
+							AND member_relation = 'ignored'
+						</if>
+						<if test="member_relation == 'friend'">
+							AND member_relation = 'friend'
+						</if>
+				     ) rel
+    				ON mem.member_id = rel.relation_id
+			WHERE rel.relation_id IS NOT NULL
+			ORDER BY member_id    
+			LIMIT 10 OFFSET #{message_offset}
+	</select>
+	<select id="selectRelationCount" parameterType="Map" resultType="int">
+		SELECT count(*)
+			FROM member mem 
+				LEFT OUTER JOIN 
+					(SELECT relation_id
+	  				 	FROM relation
+						WHERE member_id=#{member_id}
+						<if test="member_relation == 'ignored'">
+							AND member_relation = 'ignored'
+						</if>
+						<if test="member_relation == 'friend'">
+							AND member_relation = 'friend'
+						</if>
+				     ) rel
+    				ON mem.member_id = rel.relation_id
+			WHERE rel.relation_id IS NOT NULL
+	</select>
+	<select id="checkProfileImage" parameterType="String" resultType="String">
+		select member_pf_image FROM member WHERE member_id = #{member_id} 
+	</select>
+	
+	<select id="adminSelectOne" parameterType="string" resultType="Member">
+		SELECT member_id,member_type,member_pw,member_email,member_nick,member_gender,
+			   member_regdate,member_email_authcode,member_bool,member_bool_memo,member_pf_image
+			FROM member WHERE member_id = #{member_id}
+	</select>
+	<select id="adminSelectAll" resultType="Member">
+		SELECT member_id,member_type,member_pw,member_email,member_nick,member_gender,
+			   member_regdate,member_email_authcode,member_bool,member_bool_memo,member_pf_image
+			FROM member
+	</select>
+	
+	<update id="boolMember" parameterType="Map">
+		UPDATE member
+			SET member_bool = 1, member_bool_memo = #{member_bool_memo}
+			WHERE member_id = #{member_id}
+	</update>	
+	<update id="reviveMember" parameterType="String">
+		UPDATE member
+			SET member_bool = 0
+			WHERE member_id = #{member_id}
+	</update>
+	
+	<select id="selectAllMyTripBoard" parameterType="map" resultType="Trip_board">
+		select * from trip_board where member_id = #{member_id} limit 10 offset #{paging}
+	</select>
+	
+	<select id="selectAllMyReply" parameterType="map" resultType="Reply">
+		select * from reply where member_id = #{member_id} limit 10 offset #{paging}
+	</select>
+
+</mapper>

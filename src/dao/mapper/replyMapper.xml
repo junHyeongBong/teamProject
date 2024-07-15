@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.ReplyDao">
+	<insert id="regReply" parameterType="hashmap" useGeneratedKeys="true" keyProperty="reply_num">
+		INSERT 
+		INTO reply
+		VALUES(0, #{member_id}, #{member_nick}, #{trip_board_num}, 0, #{parent_id}, #{depth}, #{reply_content}, now())
+	</insert>
+	
+	<update id="updateReply" parameterType="hashmap">
+		update reply
+		set parent_id = #{parent_id},
+			depth = #{depth},
+			member_id = #{member_id},
+			member_nick = #{member_nick},
+			reply_content = #{reply_content},
+			reply_date = now(),
+			reply_password = #{reply_password}
+		where reply_num = #{reply_num}	
+	</update>
+	
+
+	<delete id="deleteBoardReply" parameterType="hashmap">
+		DELETE from reply where reply_num=#{reply_num}
+	</delete>
+	
+	<delete id="deleteBoardReplyAll" parameterType="hashmap">
+				DELETE
+				from reply
+		where 1=1 and (reply_num=#{reply_num} or parent_id=#{reply_num})
+	</delete>
+	
+	<select id="selectBoardReplyList" parameterType="hashmap" resultType="Reply">
+		SELECT *
+		FROM reply
+		WHERE trip_board_num = #{trip_board_num}
+		ORDER BY reply_num asc
+	</select>
+	
+	<select id="selectReplyPassword" parameterType="hashmap" resultType="int">
+		select count(*)
+		from reply
+		where reply_num = #{reply_num}
+		and   reply_password = #{reply_password}
+	</select>
+	
+	<select id="getReplyList" parameterType="hashmap" resultType="Reply">
+		select * from reply
+		where trip_board_num = #{trip_board_num} order by reply_num asc
+	</select>
+	
+	<select id="searchMyReplyList" parameterType="map" resultType="Trip_board">
+		select * from reply where member_id = #{member_id}
+	</select>
+</mapper>

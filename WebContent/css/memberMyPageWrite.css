@@ -1,0 +1,317 @@
+body{
+	background: url("../img/desktop-2325627_1920.jpg");
+/* 	background: url("../img/coffee-1711431_1920.jpg"); */
+	background-repeat: no-repeat;
+	background-size: cover;
+/* 	color: white !important; */
+}
+
+
+
+.wrap {
+	margin-top: 195px;
+/* 	border-style: solid; */
+/* 	border: 2px solid red; */
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0px;
+}
+
+th{
+	padding-right: 68px;
+	padding-bottom: 78px;
+}
+
+#pw_input{
+	margin-bottom: 6px;
+}
+
+
+#pwSpan{
+	padding-left: 0px;
+}
+
+#check_pwSpan{
+	padding-left: 0px;
+}
+
+#check_pw_input{
+	margin-top: 13px;
+	margin-bottom: 7px;
+}
+
+#nickSpan{
+	padding-left: 14px;
+}
+
+#pwM{
+	padding-left: 0px;
+}
+
+#nickModButton{
+	margin-left: 10px;
+}
+
+#mod_pw{
+	margin-right: 5px;
+	margin-bottom: 68px;
+	margin-top: 20px;
+}
+
+#email_input{
+	margin-bottom: 17px;
+	margin-top: 31px;
+}
+
+#email_pw_input{
+	margin-top: 21px;
+	margin-bottom: 25px;
+	
+}
+
+#emailAuthButton{
+	margin-left: 0px;
+	margin-bottom: 13px;
+}
+
+#cancelModEmail{
+	margin-left: 5px;
+}
+
+#nickCheckButton{
+	margin-left: 0px;
+}
+
+#mod_nick{
+	margin-right: 5px;
+}
+
+#modEmail{
+	margin-top: 12px;
+}
+
+#nick_input{
+	margin-top: 19px;
+}
+
+#nickCheckButton{
+	margin-bottom: 31px;
+	margin-top: 9px;
+}
+
+
+input[type="button"]{
+/*   background:#1AAB8A; */
+/*   color:#fff; */
+/*   border:none; */
+/*   position:relative; */
+/*   height: 60px; */
+/*   font-size:1.6em; */
+/*   padding:0 2em; */
+  cursor:pointer;
+  transition:200ms ease all;
+  background-color: white;
+  color: black;
+  border: 1px solid blue;
+  -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+/*   outline:none; */
+}
+
+input[type="button"]:hover{
+	background-color: blue;
+	color: white;
+}
+
+input[type="button"]:before, input[type="button"]:after{
+	  content:'';
+	  position:absolute;
+	  top:0;
+	  right:0;
+	  height:2px;
+	  width:0;
+	  background: #1AAB8A;
+	  transition:400ms ease all;
+}
+input[type="button"]:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+
+input[type="button"]:hover:before, input[type="button"]:hover:after{
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+
+
+.mainButton {
+	margin-bottom: 38px;
+}
+
+.title {
+	margin-top: 38px;
+}
+
+.animated-button:link, .animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+.animated-button:link:after, .animated-button:visited:after{
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+
+.animated-button:link:hover, .animated-button:visited:hover{
+	color: #fff;
+	text-shadow: none;
+}
+
+.animated-button:link:hover:after, .animated-button:visited:hover:after{
+	height: 450%;
+}
+
+.victoria-one{
+	border: 2px solid #D24D57;
+/* 	transform: translateX(-50%) translateY(-50%) rotate(-25deg); */
+/* 	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg); */
+}
+
+.victoria-one:after{
+		transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+		-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+
+
+
+.main-container{
+	padding: 50px 0;
+}
+
+.block{
+	margin-bottom: 50px;
+}
+
+.separator-2{
+	width: 100%;
+	margin-bottom: 15px;
+	position: relative;
+	height: 1px;
+	background-color: deeppink;
+}
+
+.separator-2:after{
+	height: 1px;
+	position: absolute;
+	bottom: -1px;
+	left: 0px;
+	content: "";
+	width: 100%;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.12) 35%, rgba(0, 0, 0, 0.05) 70%, transparent 100%);
+	
+}
+
+.nav.flex-column > li .nav-link{
+	padding: 7px 0px;
+	color: #777777;
+	position: relative;
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+
+a{
+	color: #09afdf;
+}
+
+a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.text-center a{
+	color: black;
+}
+
+/* .nav.flex-column:not(.list-style-icons) > li .nav-link:after { */
+/*     font-family: "FontAwesome"; */
+/*     content: "\f101"; */
+/*     font-size: 12px; */
+/*     position: absolute; */
+/*     right: 15px; */
+/*     top: 6px; */
+/*     color: #d1d1d1; */
+/*     -webkit-transition: all 0.2s ease-in-out; */
+/*     -o-transition: all 0.2s ease-in-out; */
+/*     transition: all 0.2s ease-in-out; */
+/* } */
+
+span:hover{
+	color  : red;
+}
+
+
+a span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-size: 16px;
+}
+
+
+a span:after{
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+  color: red;
+}
+
+a:hover span{
+	padding-right: 25px;
+}
+
+a:hover span:after{
+	opacity: 1;
+	right: 0;
+}
+
+
+.leaveButton{
+	float: right;
+	margin-top: 22px;
+}
+
+
+.table{
+	margin-top: 114px;
+	margin-left: 5px;
+}

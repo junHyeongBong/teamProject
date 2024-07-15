@@ -1,0 +1,838 @@
+body{
+	margin: 0 auto;
+}
+
+.wrapper{
+	margin: 0 auto;
+	padding: 0;
+	width: 1850px;
+	height: 2500px;
+	font-family: 'Gamja Flower', cursive;
+	background-image: url("../img2/waypoint-resize2.png");
+	background-size: contain;
+	opacity: 0.8;
+	text-align: center;
+}
+
+.tripBoard{
+	margin: 0 auto;
+	padding: 0;
+	width: 1850px;
+	height: 1400px;
+	text-align: center;
+}
+
+.welcomeText{
+	padding-top:60px;
+	color: #ffffff;
+	font-family: 'Do Hyeon', sans-serif !important;
+	font-size: 120px;
+}
+
+.tripInfo{
+	margin: 0 auto;
+	padding: 0;
+	width: 1800px;
+	height: 110px;
+/* 	background-color: rgba(255, 255, 255, 0.5); */
+	border-radius: 10px;
+	background-color: white;
+	font-size: 29px;
+	color: black;
+}
+
+.titleForm{
+	width: 500px;
+	height: 110px;
+	margin: 0 15px;
+	padding-top: 9px;
+	display: inline-block;
+	text-align: left;
+}
+.startDateForm, .endDateForm{
+	width: 280px;
+	height: 110px;
+	margin: 0 15px;
+	display: inline-block;
+	text-align: left;
+}
+
+.nowPepleCount, .finalPepleCount{
+	width: 100px;
+	height: 110px;
+	margin: 0 15px;
+	display: inline-block;
+	text-align: left;
+}
+
+.writerForm{
+	width: 260px;
+	height: 110px;
+	margin: 0 15px;
+	display: inline-block;
+	text-align: left;
+}
+
+#trip_board_title{
+	width: 450px;
+}
+
+#trip_board_title, #trip_board_startdate, #trip_board_enddate, #trip_board_member_nick{
+	margin-top: 2px;
+	padding: 10px;
+	border: 3px solid black;
+	border-radius : 10px;
+	height: 24px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 25px;
+}
+
+#pf_image{
+	width: 50px;
+	height: 50px;
+	vertical-align: bottom;
+	display: inline;
+}
+
+#trip_board_member_nick{
+	width: 150px;
+	display: inline;
+}
+
+#trip_board_nowcount, #trip_board_finalcount{
+	margin-top: 2px;
+	border: 3px solid black;
+	border-radius : 10px;
+	width: 88px;
+	height: 46px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 25px;
+	text-align: center;
+}
+
+.inputMemoForm{
+	border: 0;
+	background-color: rgba(255, 255, 255, 0);  
+	font-family: 'Gamja Flower', cursive;
+	font-size: 25px;
+	margin-left: 10px;
+	width: 334px;
+	height: 58px;
+}
+
+.travelDays{
+	margin: 0 auto;
+	padding: 0;
+	width: 1800px;
+	height: 40px;
+	text-align: left;
+}
+
+.days{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	padding-top: 8px;
+	width: 98px;
+	height: 30px;
+	background-color: #2E77BC;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	cursor: pointer;
+	border: 1px solid darkgrey;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.divActive{
+	background-color: #003366 !important;
+}
+
+.dailyTripInfo{
+	margin: 0 auto;
+	padding: 0;
+	width: 1800px;
+	height: 850px;
+}
+
+.dailyTripInfoTable{
+	margin: -2px 0 0 -2px;
+	width: 1804px;
+}
+
+.dailyTripInfoTable td{
+/* 	border: 1px solid black; */
+}
+
+.timeTable{
+	margin:0 auto;
+	padding: 0;
+	width: 350px;
+	height: 700px;
+}
+
+.place{
+	margin:0 auto;
+	padding: 0;
+	width: 500px;
+	height: 700px;
+}
+
+.roadInfo{
+	margin:0 auto;
+	padding: 0;
+	width: 350px;
+	height: 700px;
+}
+
+.mapForm{
+	margin:0 auto;
+	padding: 0;
+	width: 595px;
+	height: 700px;
+}
+
+.stay{
+	margin:0 auto;
+	padding: 0;
+	height: 150px;
+}
+
+.rest{
+	margin:0 auto;
+	padding: 0;
+	height: 150px;
+}
+
+.dailyTime{
+	margin: 0 auto;
+	margin-bottom: 6px;
+	padding: 0;
+	padding-top: 5px;
+	width: 349px;
+	height: 89px;
+	text-align: left;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.dailyTime input{
+	float: left;
+	display: block;
+	margin-top: 32px;
+	margin-left: 10px;
+	width: 240px;
+	position: absolute;
+}
+
+.dailyTime img{
+	float: right;
+	padding: 0;
+	margin-top: 2px;
+	margin-right: 8px;
+	width: 80px !important;
+	height: 80px !important;
+	position: relative;
+	border-radius: 10px;
+}
+
+.placeNavi{
+	margin: 0 auto;
+	padding: 0;
+	font-size: 25px;
+	width: 499px;
+	height: 38px;
+}
+
+.placeOption{
+	display: inline-block;
+	margin: 0 -3px 0 -4px;
+	padding: 5px 0;
+	width: 80px;
+	height: 25px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	background-color: #2E77BC;
+	border: 2px solid darkgrey;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	cursor: pointer;
+}
+
+.placeRecommendList{
+	width: 500px;
+	height: 620px;
+	background-color: rgba(255, 255, 255, 0.7);
+	text-align: cneter;
+	font-size: 24px;
+}
+
+.placeRecommendList img{
+	width: 150px;
+	height: 150px;
+}
+
+.placeRecommend{
+	display : inline-block;
+	width: 150px;
+	height: 175px;
+	margin: 8px;
+	margin-top: 15px;
+	font-size: 25px;
+/* 	background-color: rgba(255, 255, 255, 0.7); */
+}
+
+.placeRecommend a{
+	text-decoration: none;
+}
+
+.placeRecommendListPaging{
+	width: 500px;
+	height: 42px;
+	background-color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.placeRecommendListPaging input{
+	width: 30px;
+	height: 30px;
+	margin: 1px;
+}
+
+.transportNaviHeader{
+	margin: 0 auto;
+	padding: 0;
+	font-size: 25px;
+	width: 350px;
+	height: 38px;
+}
+
+.transportNavi{
+	padding: 5px 0;
+	width: 85px;
+	height: 25px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	background-color: #2E77BC;
+	border: 2px solid darkgrey;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.transportOption{
+	display: inline-block;
+	margin: 0 -1px 0 -1px;
+	padding: 5px 0;
+	width: 85px;
+	height: 25px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	background-color: #2E77BC;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.addressTextSearchForm{
+	display: inline-block;
+	float: right;
+	margin: 0 auto;
+	padding: 0;
+	width: 356px;
+	height: 39px;
+}
+
+#textSearcher{
+	display : inline-block;
+	margin: 0 auto;
+	padding: 0;
+	padding-left: 5px;
+	width: 278px;
+	height: 35px;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 21px;
+	vertical-align: text-bottom;
+}
+#textSearcherButton{
+	display : inline-block;
+	float: right;
+	margin: 0 auto;
+	padding: 0;
+	width: 68px;
+	height: 39px;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 30px;
+	color: white;
+	background-color: rgb(65, 67, 69);
+	vertical-align: text-bottom;
+}
+
+.roadFinderForm{
+	margin: 0 auto;
+	padding: 0;
+	width: 350px;
+	height: 662px;
+	color: whtie;
+	background-color: rgba(255, 255, 255, 0.7);
+	font-size: 20px;
+	line-height: 19px;
+	border-radius: 10px;
+}
+
+.roadFinderForm span{
+	position: relative;
+	top: 43%;
+}
+
+.mapNaviHeader{
+	height: 39px;
+}
+
+
+.mapNavi{
+	display: inline-block;
+	float: left;
+	padding: 5px 0;
+	width: 85px;
+	height: 25px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	border: 2px solid darkgrey;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#map{
+	margin:0 auto;
+	padding: 0;
+	width: 588px;
+	height: 652px;
+	border: 4px solid rgba(255, 255, 255, 0.7);
+	border-radius: 10px;
+}
+
+.stayForm{
+	margin:0 auto;
+	padding: 0;
+	height: 165px;
+	background-color: rgba(255, 255, 255, 0.7);
+	font-size: 30px;
+	border-radius: 10px;
+}
+
+.stayRecommend{
+	display : inline-block;
+	width: 125px;
+	height: 165px;
+	margin: 8px;
+	padding: 0;
+	font-size: 25px;
+	border-radius: 10px;
+}
+
+.stayRecommend img{
+	width: 120px;
+	height: 120px;
+}
+
+.stayRecommend a{
+	text-decoration: none;
+}
+
+.stayRecommendListPaging{
+	padding: 0;
+	width: 20px;
+	height: 150px;
+	border-radius: 10px;
+	vertical-align: text-bottom;
+}
+
+.restForm{
+	width: 595px;
+	height: 165px;
+}
+
+.restNavi{
+	display: inline-block;
+	float: left;
+	margin: 0 auto;
+	padding: 0;
+	width: 60px;
+	height: 165px;
+}
+
+.restOption{
+	margin: 0 auto;
+	padding: 0;
+	padding-top: 14px;
+	width: 60px;
+	height: 37px;
+	border: 2px solid darkgrey;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #2E77BC;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.restList{
+	display: inline-block;
+	float: right;
+	margin: 0 auto;
+	padding: 0;
+	width: 531px;
+	height: 165px;
+	background-color: rgba(255, 255, 255, 0.7);
+	font-size: 30px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.restRecommend{
+	display : inline-block;
+	width: 125px;
+	height: 165px;
+	margin: 8px;
+	padding: 0;
+	font-size: 25px;
+	border-radius: 10px;
+}
+
+.restRecommend img{
+	width: 120px;
+	height: 120px;
+}
+
+.restRecommend a{
+	text-decoration: none;
+}
+
+.tripBoardMemo{
+	margin: 0 auto;
+	margin-top: 25px;
+	text-align: left;
+	width: 1804px;
+}
+
+.tripBoardMemo span{
+	font-size: 45px;
+	vertical-align: -webkit-baseline-middle;
+}
+
+.tripBoardMemo textarea{
+	width: 1706px;
+	resize: none;
+	vertical-align: middle;
+}
+
+.lastButton{
+	margin: 0 10px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 25px;
+	color: white;
+	border: 2px solid #003366;
+	border-radius: 10px;
+	background-color: #2E77BC;
+	cursor: pointer;
+}
+
+#whatTime{
+	position: absolute;
+	margin-left: 65px;
+	margin-top: 270px;
+	padding: 10px;
+	text-align: center;
+	background: white;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	z-index: 1000;
+	font-size: 25px;
+}
+
+.whatTimeButtons{
+	display: inline-block;
+	margin: 2px;
+	padding-top: 6px;
+	color: white;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	background-color: #2E77BC;
+	cursor: pointer;
+	width: 50px;
+	height: 48px;
+	text-align: center;
+	line-height: 22px;
+}
+
+.findingRouteOptionForm{
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 25px;
+	height: 81px;
+}
+
+#startTime, #arriveTime{
+	margin-top: 2px;
+	border: 3px solid black;
+	border-radius : 10px;
+	width: 84px;
+	height: 40px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 20px;
+}
+
+.findingRouteOptionForm input{
+	margin: 0 auto;
+	padding: 0;
+	width: 76px;
+	height: 40px;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 25px;
+	color: white;
+	background-color: rgb(65, 67, 69);
+	vertical-align: bottom;
+}
+
+.startArriveAddrForm{
+	height: 55px;
+	font-size: 18px;
+	margin-left: 3px;
+	text-align: left;
+}
+
+.explainRouteForm{
+	height: 526px;
+	font-size: 18px;
+	margin-left: 3px;
+	text-align: left;
+}
+
+.selectRouteForm{
+	height: 29px;
+}
+
+.selectRoute{
+	display : inline-block;
+	width: 50px;
+	height: 25px;
+	color: white;
+	text-align: center;
+	font-size: 20px;
+	background-color: #2E77BC;
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+
+
+
+
+/*리플 CSS*/
+.reply{
+	margin-top: 80px;
+	font-family: 'Gamja Flower', cursive;
+	font-size: 20px;
+}
+
+.reply table{
+	margin: 0 auto;
+	border-style: hidden;
+}
+
+#reply_area{
+	margin: 0 auto;
+	border-style: hidden;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 5px;
+	border-radius: 10px;
+	width: 995px;
+	text-align: center;
+	font-size: 25px;
+}
+
+#reply_area tbody{
+	margin: 10px;
+}
+
+#reply_area tr{
+	padding: 10px 0 10px 0;
+	border-style: hidden;
+}
+
+#reply_area td{
+	padding: 20px 0 20px 10px;
+	border-style: hidden;
+	border-bottom: 1px solid darkgrey;
+	border-top: 1px solid darkgrey;
+}
+
+.reply_content{
+	text-align: left;
+}
+
+.reply_content_sub{
+	text-align: left;
+	padding-left: 20px !important;
+}
+
+.reply table tr{
+	margin: 10px 0 10px 0;
+	padding: 10px 0 10px 0;
+	border-style: hidden;
+}
+
+.reply_insertArea tr td{
+/* 	margin: 10px 0 10px 0; */
+	padding: 20px 0 20px 0;
+	border-style: hidden;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+}
+
+.reply table input{
+    border: 0;
+    background: none;
+	padding: 0;
+	margin: 0 auto;
+	vertical-align: bottom;
+	font-size: 25px;
+	font-family: 'Gamja Flower', cursive;
+	cursor: pointer;
+}
+
+.reply_insertArea textarea{
+	border: 2px solid darkgrey;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+	vertical-align: bottom;
+	height: 21px;
+}
+
+.reply table button{
+    background-color: #2E77BC;
+    border-radius: 10px;
+    border: 1px solid #003366;
+    color: white;
+    width: 45px;
+    height: 30px;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 19px;
+}
+
+.reply table button:hover{
+	color: #ff0000;
+	background-color: #fff;
+}
+
+.subMarkerOption{
+	margin: 0 auto;
+	margin-top: 623px;
+	float: left;
+	position: relative;
+	background-color: white;
+	width: 30px;
+	height: 30px;
+	z-index: 1000;
+}
+
+.car{
+	background-color: #CD0000 !important;
+}
+
+.pubTransport{
+	background-color: #006400 !important;
+}
+
+.bicycle{
+	background-color: #0000CD !important;
+}
+
+.walk{
+	background-color: #C15AF4 !important;
+}
+
+/* .recruitList{ */
+/* 	text-align: center; */
+/* } */
+
+.recruitListTable{
+	margin: 0 auto;
+	border-style: hidden;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+	text-align: center;
+	font-size: 25px;
+}
+
+.recruitListTable th, .recruitListTable td{
+	width: 100px;
+}
+
+.recruitDate{
+	width: 240px !important;
+}
+
+.recruitListHide{
+	cursor: pointer;
+}
+
+.dropdown-toggle{
+	cursor: pointer;
+}
+
+.dropdown-menu{
+	position: relative;
+	z-index: 3000;
+}
+
+.dropdown-table{
+	margin-left: 60px;
+}
+
+.dropdown-button{
+	border: 3px solid black;
+	border-radius: 10px;
+	background-color: white;
+	width: 134px;
+	padding-left: 8px;
+	cursor: pointer;
+}
+
+.subMenuTd{
+	cursor: pointer;
+}
+
+.reply_subMenu{
+	position: absolute;
+	z-index: 3000;
+	margin-left: 45px;
+}
+
+.reply_subMenu_button{
+	border: 3px solid black;
+	border-radius: 10px;
+	background-color: white;
+	width: 100px;
+	height: 30px;
+	padding: 0 !important;
+	cursor: pointer;
+	font-size: 20px;
+}

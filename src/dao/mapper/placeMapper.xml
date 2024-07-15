@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.PlaceDao">
+	<insert id="insertPlace" parameterType="place">
+		insert into place values(0, #{place_name}, #{place_address},
+		#{place_province}, #{place_city}, #{place_laty}, #{place_lngx},
+		#{place_type}, #{place_purpose}, 'recodate', '자유관광', '커플',
+		'차', 0, now())
+	</insert>
+	
+	<update id="updatePlace" parameterType="place">
+		
+	</update>
+	
+	<delete id="deletePlace" parameterType="int">
+		
+	</delete>
+	
+	<select id="selectOnePlace" parameterType="int" resultType="place">
+		
+	</select>
+	
+	<select id="selectAllPlaceByOption" parameterType="place" resultType="place">
+		<choose>
+			<when test="place_purpose == 'all'">
+				select * from place where place_laty between #{place_laty}-0.065 and #{place_laty}+0.065
+				and place_lngx between #{place_lngx}-0.065 and #{place_lngx}+0.065 order by place_index
+			</when>
+			<otherwise>
+				select * from place where place_purpose=#{place_purpose} and place_laty between #{place_laty}-0.065 and #{place_laty}+0.065
+				and place_lngx between #{place_lngx}-0.065 and #{place_lngx}+0.065 order by place_index
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="selectAllPlaceByType" parameterType="string" resultType="place">
+		select * from place where place_type=#{place_type} order by place_index
+	</select>
+	
+	<select id="selectAllPlace" resultType="place">
+		select * from place order by place_index
+	</select>
+</mapper>

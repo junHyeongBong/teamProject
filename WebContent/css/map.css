@@ -1,0 +1,547 @@
+/***********************navbar**************************/
+.navbar{
+	font-family: 'Bangers', cursive !important;
+	margin-bottom: 0;
+	background-color: #004080 !important;
+	z-index: 9999;
+	border: 0;
+	font-size: 20px !important;
+	letter-spacing: 3px;
+	border-radius: 0;
+	line-height: 1.42857143 !important;
+}
+.navbar .container .navbar-header .navbar-brand{
+	font-size: 2em !important;
+}
+.navbar .container .navbar-header .navbar-brand:hover{
+	color: #ff0000 !important;
+	background-color: #fff !important;
+}
+.navbar li a, .navbar .navbar-brand{
+	color: #fff !important;
+}
+.navbar-nav a:hover, .navbar-nav li.active a{
+	color: #ff0000 !important;
+	background-color: #fff !important;
+}
+nav ul li a.active{
+	background: rgba(255, 0, 0, 0.44);
+	color: #fff;
+	border-radius: 6px;
+}
+nav ul li a.active:hover{
+	background: #9AFE2E;
+	color: #fff;
+}
+/**********************상단 배너*********************************/
+.jumbotron.bg-1{
+	background-image: url("../img/cycling-1533270_1920.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 50vh;
+}
+.jumbotron.bg-1 h1{
+	position: relative;
+	color: #fff;
+	font-family: 'Poiret One', cursive;
+	font-size: 8em !important;
+/* 	width: 100%; */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/*****************************************************************/
+#search{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#search li{
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+}
+
+#search li button{
+	font-family: 'Yeon Sung', cursive;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+#search li button:hover, button:active{
+	color: red;
+	border: 1px solid #ff0080;
+	transition: background-color 0.4s ease-in, color 0.4s ease-in;
+}
+
+/**************************js************************************/
+#routesNav{
+	font-family: 'Yeon Sung', cursive;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#routesNav button{
+	display: inline-block;
+	font-weight: bold;
+	border-radius: 9px;
+	padding: 5px 10px;
+	border: 3px solid #81DAF5;
+	text-decoration: none;
+	outline: none;
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	background-color: white;
+}
+#routesNav #nav1 button:active{
+	background: #0174DF;
+	border: #fff;
+	color: #fff;
+}
+
+
+#routesNav #nav0{
+	border-radius: 15px 15px 15px 15px;
+	border: solid 3px #81DAF5;
+	padding: 20px 20px 20px 20px;
+}
+
+#routesNav #nav0:hover{
+	color: #fff;
+	background-color: #0174DF;
+	border: dotted 4px #fff;
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+#routesNav #nav1 hr{
+	border: 1px dotted #58ACFA;
+}
+
+#routesNav #nav1{
+	border-radius: 2px 2px 2px 2px;
+	border-top: dotted 3px #81DAF5;
+	border-bottom: dotted 3px #81DAF5;
+	padding: 10px 10px 10px 10px;
+}
+
+#routesNav #nav1:hover{
+	color: #fff;
+	background-color: #0174DF;
+	border: double 4px #fff;
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+#routesNav hr{
+	border: dotted 3px #58ACFA;
+}
+
+.subMenu button{
+	display: inline-block;
+	font-weight: 600;
+	border-radius: 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
+	margin: 10px 5px 10px 10px;
+	border: 3px solid #F5A9BC;
+	text-decoration: none;
+	outline: none;
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	background-color: white;
+	font-family: 'Yeon Sung', cursive;
+	letter-spacing: 2px;
+	font-size: 20px;
+	
+}
+
+#btn1{
+	border: 3px solid #DF0101;
+	color: #DF0101;
+	background: #F6CECE;
+}
+#btn2{
+	border: 3px solid #00FF00;
+	color: #00FF00;
+	background: #CEF6CE;
+}
+#btn3{
+	border: 3px solid #0101DF;
+	color: #0101DF;
+	background: #CECEF6;
+}
+#btn4{
+	border: 3px solid #8000FF;
+	color: #8000FF;
+	background: #D8CEF6;
+}
+
+
+.subMenu #btn1:hover{
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	color: #fff;
+	background-color: #DF0101;
+}
+
+.subMenu #btn2:hover{
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	color: #fff;
+	background-color: #00FF00;
+}
+.subMenu #btn3:hover{
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	color: #fff;
+	background-color: #0101DF;
+}
+.subMenu #btn4:hover{
+	transition: background-color 0.2s ease-out, color 0.2s ease-out;
+	color: #fff;
+	background-color: #8000FF;
+}
+
+/********************************************************************/
+
+.modal .modal-header h4{
+	font-family: 'Parisienne', cursive;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.modal .modal-body{
+	font-family: 'Yeon Sung', cursive;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.modal .modal-footer p{
+	font-family: 'Parisienne', cursive;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+/***********************협력배너****************************************/
+.banner{
+	top: 50px;
+	height: 310px;
+}
+
+
+.banner .dark-translucent-bg{
+	min-height: 250px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+
+.dark-translucent-bg .form-group option{
+	font-family: 'Cormorant SC', serif;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.banner .banner-big-height{
+	min-height: 550px;
+	padding-top: 100px;
+}
+
+.padding-bottom-clear{
+	padding-bottom: 0 !important;
+}
+.pv-20{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.separator{
+	width: 100%;
+	margin: 20px auto 15px;
+	position: relative;
+	height: 1px;
+}
+.separator:after{
+	background: #505050;
+}
+.dark-translucent-bg{
+	color: #ffffff;
+}
+
+.dark-translucent-bg{
+	background: rgba(255,255,255, 0.325);
+	
+}
+
+.sorting-filters label{
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	text-align: left;
+}
+.sorting-filters .form-inline .form-control{
+	width: 100%;
+}
+
+.form-inline{
+	height: 48px;
+}
+
+.form-group{
+	display: block;
+}
+.dark-translucent-bg .form-group label{
+	color: #424242;
+}
+
+/************************label******************************/
+.form-group label{
+	font-size: 20px;
+	font-family: 'Cormorant SC', serif;
+	color: #000000 !important;
+}
+
+/*************************************************************/
+
+/********************table************************/
+.table th{
+	font-family: 'Cormorant SC', serif;
+	font-size: 20px;
+}
+
+/***********************************************/
+
+.container.last label{
+	font-family: 'Yeon Sung', cursive;
+	font-size: 20px;
+}
+
+/**********************wrap********************************/
+.wrap{
+	font-family: 'Jua', sans-serif;
+	font-size: 25px;
+	font-weight: bold;
+}
+/************************social**********************************/
+#icon{
+    padding: 0 0 0 820px;
+}
+
+.icon-circle .fa{
+    font-size           : 25px;
+    color               : #e84700;
+    margin              : 0 auto;
+    height              : 80px;
+    width               : 80px;
+    border-radius       : 50%;
+    border              : 2px solid #e84700;
+    line-height         : 80px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+}
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 40px;
+}
+
+@media (min-width:320px) and (max-width:768px) {
+
+
+ .icon-circle .fa{
+    font-size           : 15px;
+    color               : #e84700;
+    margin              : 0 auto;
+    height              : 40px;
+    width               : 40px;
+    border-radius       : 50%;
+    border              :2px solid #e84700;
+    line-height         : 40px;
+    cursor              : pointer;
+    -webkit-transition  : all  ease-in-out 0.35s;
+    -moz-transition     : all  ease-in-out 0.35s;
+    -o-transition       : all  ease-in-out 0.35s;
+    -ms-transition      : all  ease-in-out 0.35s;
+    transition          : all  ease-in-out 0.20s,background-color ease-in-out 0.05s;
+}
+
+.icon-circle  .fa:hover{
+    
+    background-color        : #e84700;    
+    color                   : #fff;
+    border                  : 1px solid #e84711;
+    -moz-box-shadow         : inset 0px 0px 0px 5px #ffffff;
+    -o-box-shadow           : inset 0px 0px 0px 5px #ffffff;
+    -ms-box-shadow          : inset 0px 0px 0px 5px #ffffff;
+    -webkit-box-shadow      : inset 0px 0px 0px 5px #ffffff;
+    box-shadow              : inset 0px 0px 0px 5px #ffffff;
+    -ms-transform           : scale(1.2,1.2); 
+    -webkit-transform       : scale(1.2,1.2);
+    -moz-transform          : scale(1.2,1.2); 
+    -o-transform            : scale(1.2,1.2); 
+    transform               : scale(1.2,1.2);  
+}
+
+.icon-circle  i:before{
+    margin-left         : 0px;
+    font-size           : 20px;
+}   
+}
+
+.ifacebook .fa{
+    color               :#3B5998;
+    border              :2px solid #3B5998;
+}
+
+.ifacebook .fa:hover{
+    
+    background-color        : #3B5998;    
+    color                   : #fff;
+    border                  : 1px solid #3B5998;
+
+}
+
+.itwittter .fa{
+    color               : #33ccff;
+    border              :2px solid #33ccff;
+}
+
+.itwittter .fa:hover{
+    
+    background-color        : #33ccff;    
+    color                   : #fff;
+    border                  : 1px solid #33ccff;
+
+}
+
+.igoogle .fa{
+    color               : #BD3518;
+    border              :2px solid #BD3518;
+}
+
+.igoogle .fa:hover{
+    
+    background-color        : #BD3518;    
+    color                   : #fff;
+    border                  : 1px solid #BD3518;
+
+}
+
+.iLinkedin .fa{
+    color               : #007bb7;
+    border              :2px solid #007bb7;
+}
+
+.iLinkedin .fa:hover{
+    
+    background-color        :#007bb7;    
+    color                   : #fff;
+    border                  : 1px solid #007bb7;
+
+}
+
+/***********************reset button*************************************/
+#reset1{
+	text-decoration: none !important;
+	padding: 10px 10px 10px 10px;
+	margin: 0 auto;
+	border-radius: 15px 15px 15px 15px;
+	letter-spacing: 2px;
+	font-family: 'Yeon Sung', cursive;
+	font-weight: 50px;
+	font-size: 20px;
+	
+}
+#reset1:hover{
+	border-style: none;
+	text-decoration: none !important;
+	color: white;
+	background: lime;
+}
+/***********************container*************************************/
+
+.col-sm-2{
+	width: 450px;
+	height: 800px;
+	margin: 0;
+}
+
+.searchClass{
+	widows: 440px;
+}
+
+.panel-default{
+	width: 550px;
+	margin: 0;
+}
+
+.panel-heading{
+	width:550px;
+	height: 90px;
+}
+
+.panel .panel-heading h2{
+	font-family: 'Parisienne', cursive;
+	font-weight: bold;
+	color: #FA5858;
+	margin: 0;
+}
+
+.panel .panel-heading label{
+	font-family: 'Jua', sans-serif;
+	font-size: 17px;
+}
+
+.panel .panel-place-body{
+	width:550px;
+	font-family: 'Yeon Sung', cursive;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.place-recommend{
+	display: inline-block;
+	margin: 10px;
+}
+
+.panel .panel-rest-body{
+	width:550px;
+	font-family: 'Yeon Sung', cursive;
+	font-weight: bold;
+	font-size: 17px;
+}
+
+.rest-recommend{
+	display: inline-block;
+	margin: 10px;
+}
+
+.panel .panel-footer{
+	padding-top:5px;
+	width:550px;
+	font-family: 'Jua', sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.col-sm-7{
+	width: 850px;
+	height:800px;
+	margin: 0;
+}

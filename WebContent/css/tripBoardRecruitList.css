@@ -1,0 +1,294 @@
+body{
+	width: 1850px;
+	height: 2500px;
+	margin: 0 auto;
+}
+
+.view{
+	background: url("https://mdbootstrap.com/img/Photos/Others/img (40).jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.navbar{
+	background-color: transparent;
+}
+
+.video-section .pattern-overlay {
+background-color: rgba(71, 71, 71, 0.59);
+padding: 110px 0 32px;
+min-height: 600px; 
+/* Incase of overlay problems just increase the min-height*/
+}
+.video-section h1, .video-section h3{
+text-align:center;
+color:#fff;
+}
+.video-section h1{
+font-size:80px;
+font-family: 'Buenard', serif;
+font-weight:bold;
+text-transform: uppercase;
+margin: 40px auto 0px;
+text-shadow: 1px 1px 1px #000;
+-webkit-text-shadow: 1px 1px 1px #000;
+-moz-text-shadow: 1px 1px 1px #000;
+}
+.video-section h3{
+font-size: 35px;
+font-weight:lighter;
+margin: 0px auto 15px;
+}
+.video-section .buttonBar{display:none;}
+.player {font-size: 1px;}
+
+
+/* Tabs*/
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #0000ff;
+    margin-bottom: 200px;
+    text-transform: uppercase;
+    font-family: 'Allura', cursive;
+}
+
+.neon{
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	margin: 0;
+	padding: 0 20px;
+	font-size: 5em;
+	color: #0000ff;
+	text-shadow: 0 0 20px #47b8e0!important;
+}
+.neon:after{
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 270px;
+	padding: 0 20px;
+	z-index: -1;
+	color: #47b8e0 !important;
+	filter: blur(15px);
+}
+.neon:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+/* 	background: #57a0fb !important; */
+	z-index: -2;
+	opacity: .9;
+	filter: blur(80px);
+}
+
+
+#tabs{
+    color: black;
+}
+#tabs h6.section-title{
+	position: relative;
+	margin-top: 100px;
+    color: #0000ff;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: black;
+    background-color: transparent;
+    border-color: transparent transparent #47b8e0;
+    border-bottom: 4px solid !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #47b8e0;
+    font-size: 20px;
+}
+
+.main{
+	height: 100vh;
+}
+
+.main .header{
+	padding: 20px 10px 20px;
+}
+
+.main .header h2{
+	text-transform: none;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.main .post-info{
+	font-size: 12px;
+    color: #000000;
+    font-weight: 400;
+}
+
+.main .post-info > span{
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.main .blogpost-content p{
+	margin-bottom: 15px;
+}
+
+.overlay-container{
+	position: relative;
+	display: block;
+	text-align: center;
+	overflow: hidden;
+}
+
+.overlay-container img{
+	display: block;
+	max-width: 100%;
+	height: 250px;
+	vertical-align: middle;
+	border-style: none;
+}
+
+.row{
+	margin-top: -150px;
+}
+
+.blog-pager{
+	display: block;
+	overflow: hidden;
+	clear: both;
+	text-align: center;
+	margin: 60px 0 0;
+}
+
+.blog-pager .page-of{
+	display: none;
+	width: auto;
+	border-color: rgba(0,0,0,0);
+	margin: 0;
+}
+
+.blog-pager a, .blog-pager span{
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	background-color: #f2f2f2;
+	color: #111111;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 36px;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0 2px;
+	border-radius: 100%;
+	transition: all .17s ease;
+}
+.blog-pager a:hover, .blog-pager a:focus{
+	background-color: #ff0000;
+	color: #fff;
+}
+
+.page-num.page-active{
+	background-color: #ff0000;
+	color: #fff;
+}
+
+.blog-pager a, .blog-pager a:visited{
+	text-decoration: none;
+}
+
+.blog-pager .page-dots{
+	width: 20px;
+	background-color: #fff;
+	font-size: 16px;
+	line-height: 30px;
+	border: 0;
+}
+
+.col-sm-6{
+	font-family: 'Yeon Sung', cursive;
+	margin-top: 70px;
+	margin-left: 15px;
+	margin-right: 15px;
+	padding: 0;
+	display: inline-block;
+	width: 340px;
+	text-align: center;
+}
+
+.blog-pager{
+	margin-bottom: 70px;
+}
+
+.trip_board .header{
+	padding: 15px 10px 15px;
+}
+
+.trip_board .header h1{
+	text-transform: none;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+.trip_board .post-info{
+	font-family: 'Yeon Sung', cursive;
+    font-size: 20px;
+    color: black;
+    font-weight: 400;
+}
+
+.trip_board .post-info > span{
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.trip_board .blogpost-content{
+	border-top: 1px solid black;
+	padding-top: 10px;
+}
+
+.trip_board .blogpost-content p {
+	font-size: 25px;
+	font-family: 'Yeon Sung', cursive;
+	margin-bottom: 15px;
+}
+
+.col-lg-12{
+	margin-top: 190px;
+}
+
+.boardbackImg{
+	width: 340px !important;
+	height: 250px !important;
+}
+
+
+.searchForm{
+	position: relative !important;
+	top: 12%;
+	text-align: center;
+}
+
+.searchForm * {
+	display: inline-block;
+}
+
+.searchOption{
+	height: 30px;
+	vertical-align: bottom;
+}
+
+.searchButton{
+	border: 1px solid silver;
+}
